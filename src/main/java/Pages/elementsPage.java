@@ -3,7 +3,9 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import java.nio.channels.SelectableChannel;
 import java.util.List;
 
 public class elementsPage extends basePage{
@@ -15,7 +17,6 @@ public class elementsPage extends basePage{
      * .show > ul > #item-0 > span
      */
     private String elementOptionCSSLocator =".show > ul > #item-0 > span";
-
     public WebElement getElementOption () {
         WebElement elementOption = webDriver.findElement(By.cssSelector(elementOptionCSSLocator));
         return elementOption;
@@ -29,7 +30,6 @@ public class elementsPage extends basePage{
      *  .col-md-3.col-sm-12>#userName-label
      */
     private String elementFullNameFieldCSSLocator = ".col-md-3.col-sm-12>#userName-label";
-
     public WebElement getElementFullName (){
         WebElement elementOptionFullName = webDriver.findElement(By.cssSelector(elementFullNameFieldCSSLocator));
         return elementOptionFullName;
@@ -38,6 +38,7 @@ public class elementsPage extends basePage{
      * .col-md-3.col-sm-12>#userEmail-label
      */
     private String elementEmailFieldCSSLocator = ".col-md-3.col-sm-12>#userEmail-label";
+    //XPATH = //label[@id='userEmail-label']    
     public WebElement getElementEmail(){
         WebElement elementEmail = webDriver.findElement(By.cssSelector(elementEmailFieldCSSLocator));
         return elementEmail;
@@ -65,6 +66,21 @@ public class elementsPage extends basePage{
     public WebElement getElementSubmit(){
         WebElement elementSubmit = webDriver.findElement(By.cssSelector(elementSubmitButton));
         return elementSubmit;
+    }
+    /** DropDowb regresa un objeto Select
+     */
+    private String dropDownColorsId="oldSelectMenu";
+    public Select getDropDownColors (){
+        WebElement colorsDropDown = webDriver.findElement(By.id(dropDownColorsId));
+        Select colorsDropDownSelect = new Select(colorsDropDown);
+        return colorsDropDownSelect;
+    }
+
+    private String dropDownCarsId="cars";
+    public Select getDropDownCars(){
+        WebElement carsDropDown = webDriver.findElement(By.id(dropDownCarsId));
+        Select carsDropDownSelect = new Select(carsDropDown);
+        return carsDropDownSelect;
     }
 
 }

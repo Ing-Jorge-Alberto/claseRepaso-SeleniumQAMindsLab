@@ -2,8 +2,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 public class baseTest {
     private String pathToChromeDriver = "/Users/jcanalesp/Documents/WebDrivers/chromedriver";
@@ -20,13 +19,13 @@ public class baseTest {
         return new ChromeDriver(chromeOptions);
     }
 
-    @BeforeClass
+    @BeforeMethod
     public void beforeClass() {
         webDriver.get("https://demoqa.com/");
         webDriver.manage().window().maximize();
     }
 
-    @AfterClass
+    @AfterTest
     public void afterClass() {
         webDriver.quit();
     }
